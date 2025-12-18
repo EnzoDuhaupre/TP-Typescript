@@ -78,6 +78,111 @@ function product(nums: number[]): number {
   return nums.reduce((acc, num) => acc * num, 1);
 }
 
-console.log(sum(numbers)); // 21
-console.log(average(numbers)); // 3.5
-console.log(product(numbers)); // 720
+const users = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 15 },
+  { name: "Charlie", age: 30 },
+  { name: "Diana", age: 17 },
+];
+
+// Trouve le premier utilisateur majeur
+const firstAdult = users.find(user => user.age >= 18);
+
+console.log(firstAdult); // { name: "Alice", age: 25 }
+
+const users2 = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 15 },
+  { name: "Charlie", age: 30 },
+  { name: "Diana", age: 17 },
+];
+
+// Vérifie s'il y a au moins un mineur
+const hasMinor = users.some(user => user.age < 18);
+
+// Vérifie si tous ont plus de 10 ans
+const allAbove10 = users.every(user => user.age > 10);
+
+console.log(hasMinor);    // true (Bob et Diana sont mineurs)
+console.log(allAbove10);  // true (tous ont plus de 10 ans)
+
+const users3 = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 15 },
+  { name: "Charlie", age: 30 },
+  { name: "Diana", age: 17 },
+];
+
+// Extrait tous les noms dans un nouveau tableau
+const names = users.map(u => u.name);
+
+// Vérifie si "Alice" et "Eve" sont présents
+const hasAlice = names.includes("Alice");
+const hasEve = names.includes("Eve");
+
+console.log(names);     
+console.log(hasAlice);   
+console.log(hasEve);  
+
+// Exercice 5.4 — flatMap
+
+const usersWithHobbies = [
+  { name: "Alice", hobbies: ["climbing", "yoga"] },
+  { name: "Bob", hobbies: ["gaming"] },
+  { name: "Charlie", hobbies: ["reading", "hiking"] },
+];
+
+// Aplatit tous les tableaux de hobbies en un seul tableau
+const allHobbies = usersWithHobbies.flatMap(user => user.hobbies);
+
+console.log(allHobbies); 
+// ["climbing", "yoga", "gaming", "reading", "hiking"]
+
+// Exercice 5.5 — sort et slice
+
+const users4 = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 15 },
+  { name: "Charlie", age: 30 },
+  { name: "Diana", age: 17 },
+];
+
+// Trie par âge croissant
+const sortedByAge = [...users4].sort((a, b) => a.age - b.age);
+
+// Récupère les 2 plus jeunes
+const twoYoungest = sortedByAge.slice(0, 2);
+
+console.log(twoYoungest);
+
+console.log(users4); // Liste originale non modifiée
+
+// Partie bonus - cas concret
+
+type User = { name: string; age: number; country: string };
+
+const data: User[] = [
+  { name: "Alice", age: 25, country: "France" },
+  { name: "Bob", age: 15, country: "France" },
+  { name: "Charlie", age: 30, country: "Spain" },
+  { name: "Diana", age: 22, country: "France" },
+];
+
+// Récupère les adultes français
+const frenchAdults = data.filter(user => user.age >= 18 && user.country === "France");
+
+// Trie par âge décroissant puis extrait les noms
+const sortedNames = [...frenchAdults]
+  .sort((a, b) => b.age - a.age)  // b - a pour décroissant
+  .map(user => user.name);
+
+// Calcule la moyenne d'âge
+const averageAge = frenchAdults.reduce((sum, user) => sum + user.age, 0) / frenchAdults.length;
+
+console.log("Adultes français :", frenchAdults);
+
+
+console.log("Noms triés par âge décroissant :", sortedNames);
+
+
+console.log("Moyenne d'âge :", averageAge);
