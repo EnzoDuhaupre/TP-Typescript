@@ -36,12 +36,11 @@ var student = { name: "Léo", grade: 14 };
 // On crée le premier Léo avec comme note 14
 function updateGrade(student, newGrade) {
     return __assign(__assign({}, student), { grade: newGrade });
-    // On crée une copie de Léo mais on modifie la note avec la nouvelle valeur
+    // On crée une copie de Léo et on modifie la note avec la nouvelle valeur
 }
 var updatedStudent = updateGrade(student, 16);
-// On appelle la fonction et on stocke la copie dans updatedStudent
-console.log(student); // { name: "Léo", grade: 14 } Premier Léo, note toujours à 14
-console.log(updatedStudent); // { name: "Léo", grade: 16 } Deuxième Léo, copie avec note à 16
+console.log(student); // Premier Léo, note toujours à 14
+console.log(updatedStudent); // Deuxième Léo, copie avec note à 16
 // Exercice 3 — Appliquer plusieurs fois
 function applyNTimes(f, n, x) {
     // On part de x
@@ -85,7 +84,7 @@ var users = [
 ];
 // Trouve le premier utilisateur majeur
 var firstAdult = users.find(function (user) { return user.age >= 18; });
-console.log(firstAdult); // { name: "Alice", age: 25 }
+console.log(firstAdult); // Alice est bien la première utilisatrice majeur elle à 25 ans
 var users2 = [
     { name: "Alice", age: 25 },
     { name: "Bob", age: 15 },
@@ -96,8 +95,8 @@ var users2 = [
 var hasMinor = users.some(function (user) { return user.age < 18; });
 // Vérifie si tous ont plus de 10 ans
 var allAbove10 = users.every(function (user) { return user.age > 10; });
-console.log(hasMinor); // true (Bob et Diana sont mineurs)
-console.log(allAbove10); // true (tous ont plus de 10 ans)
+console.log(hasMinor); // Bob et Diana sont mineurs
+console.log(allAbove10); // tous ont plus de 10 ans
 var users3 = [
     { name: "Alice", age: 25 },
     { name: "Bob", age: 15 },
