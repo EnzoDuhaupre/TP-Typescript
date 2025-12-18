@@ -29,8 +29,8 @@ return { ...student, grade: newGrade };
 const updatedStudent = updateGrade(student, 16);
 // On appelle la fonction et on stocke la copie dans updatedStudent
 
-console.log(student); // { name: "Léo", grade: 14 } Premier Léo, note toujours à 14
-console.log(updatedStudent); // { name: "Léo", grade: 16 } Deuxième Léo, copie avec note à 16
+console.log(student); // Premier Léo, note toujours à 14
+console.log(updatedStudent); // Deuxième Léo, copie avec note à 16
 
 // Exercice 3 — Appliquer plusieurs fois
 
@@ -88,7 +88,7 @@ const users = [
 // Trouve le premier utilisateur majeur
 const firstAdult = users.find(user => user.age >= 18);
 
-console.log(firstAdult); // { name: "Alice", age: 25 }
+console.log(firstAdult); // On trouve Alice qui à 25 ans
 
 const users2 = [
   { name: "Alice", age: 25 },
@@ -103,8 +103,8 @@ const hasMinor = users.some(user => user.age < 18);
 // Vérifie si tous ont plus de 10 ans
 const allAbove10 = users.every(user => user.age > 10);
 
-console.log(hasMinor);    // true (Bob et Diana sont mineurs)
-console.log(allAbove10);  // true (tous ont plus de 10 ans)
+console.log(hasMinor);    // Bob et Diana sont mineurs
+console.log(allAbove10);  // Tous ont plus de 10 ans
 
 const users3 = [
   { name: "Alice", age: 25 },
